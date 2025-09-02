@@ -11,6 +11,7 @@ import {
   setVolume,
 } from "./spotifyApi";
 import { MediaProgressBar } from "../components/MediaProgressBar";
+import { VolumeSlider } from "../components/VolumeSlider";
 import {
   IconPlayerPlayFilled,
   IconPlayerTrackNextFilled,
@@ -56,7 +57,7 @@ export function SpotifyControls() {
     };
 
     fetchStatus();
-    const interval = setInterval(fetchStatus, 900);
+    const interval = setInterval(fetchStatus, 1000);
     return () => {
       isMounted = false;
       clearInterval(interval);
@@ -122,9 +123,17 @@ export function SpotifyControls() {
                 }}>
                   <IconArrowsShuffle color={shuffle ? '#1DB954' : undefined} />
                 </button>
-
               </div>
-          
+              <div style={{ width: '150px' }}>
+                <VolumeSlider
+                  volume={volume}
+                  accentColor="#1DB954"
+                  onChange={(newVolume) => {
+                    setVolumeState(newVolume);
+                    setVolume(newVolume);
+                  }}
+                />
+                </div>
             </div>
           ) : (
             <span>Loading...</span>
