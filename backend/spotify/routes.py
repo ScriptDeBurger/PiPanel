@@ -44,6 +44,7 @@ def repeat(state):
         player.repeat(state)
     return redirect(url_for("home"))
 
+@spotify_bp.route("/volume/<int:volume>")
 def set_volume(volume):
     if 0 <= volume <= 100:
         player.set_volume(volume)
