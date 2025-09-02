@@ -1,0 +1,28 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "@preact-icons/hi": "npm:@jsr/preact-icons__hi@^1.0.13",
+    "@tabler/icons-preact": "^3.34.1",
+    "lucide-preact": "^0.542.0",
+    "preact": "^10.27.0",
+    "preact-material-components": "^1.6.1",
+    "rc-slider": "^11.1.8"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.2",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.8.3",
+    "vite": "^7.1.2"
+  }
+}

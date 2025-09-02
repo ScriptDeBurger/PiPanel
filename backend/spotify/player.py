@@ -59,3 +59,12 @@ class SpotifyPlayer:
 
     def seek(self, pos):
         self.sp.seek_track(pos * 1000)  # API expects ms
+        
+    def shuffle(self, state: bool):
+        self.sp.shuffle(state)
+    
+    def repeat(self, state: str):
+        self.sp.repeat(state)
+    
+    def set_volume(self, volume: int):
+        self.sp.volume(volume)
