@@ -25,6 +25,7 @@ import {
   IconVolume2,
   IconVolume3,
 } from "@tabler/icons-preact";
+import { getAverageColor } from "./fac";
 
 interface SpotifyData {
   album_img: string;
@@ -45,6 +46,21 @@ export function SpotifyControls() {
   const [repeatIndex, setRepeatIndex] = useState(0);
   const [shuffle, setShuffle] = useState(false);
   const [volume, setVolumeState] = useState(50);
+  const [bgColor, setBgColor] = useState<string>("#3a3636ff"); // default background
+
+  useEffect(() => {
+  let cancelled = false;
+  if(status && status.album_img) {
+    getAverageColor(status.album_img).then(color => {
+      if (!cancelled) setBgColor(color);
+    }).catch(() => {
+      if (!cancelled) setBgColor("#3a3636ff"); // fallback
+    });
+  }
+  return () => {
+    cancelled = true;
+  };
+}, [status?.album_img]);
 
   useEffect(() => {
     // Poll server every 900ms
@@ -65,7 +81,8 @@ export function SpotifyControls() {
   }, []);
 
   return (
-    <div className="p-4">
+    <div className="p-4 transition-colors duration-700 min-h-screen"
+       style={{ background: bgColor }}>
       <div className="flex gap-4 items-center">
         <div>
           {status ? (
