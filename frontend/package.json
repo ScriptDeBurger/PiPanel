@@ -12,6 +12,7 @@
     "@heroicons/react": "^2.2.0",
     "@preact-icons/hi": "npm:@jsr/preact-icons__hi@^1.0.13",
     "@tabler/icons-preact": "^3.34.1",
+    "fast-average-color": "^9.5.0",
     "lucide-preact": "^0.542.0",
     "preact": "^10.27.0",
     "preact-material-components": "^1.6.1",

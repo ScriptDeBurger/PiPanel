@@ -26,7 +26,7 @@ export default function App() {
         </button>
       </div>
       {/* Content */}
-      <div className="flex-1 overflow-y-auto bg-gray-500">
+      <div className="flex-1 overflow-y-auto">
         {activeTab === "spotify" && <SpotifyControls />}
         {activeTab === "slideshow" && <Slideshow />}
         {activeTab === "home" && <HomeAssistantControls />}
