@@ -3,7 +3,7 @@ import { useState } from "preact/hooks";
 import { SpotifyControls } from "./pages/spotify";
 import { Slideshow } from "./pages/slideshow";
 import { HomeAssistantControls } from "./pages/lights";
-import { Calendar } from "./pages/calendar";
+import  CalendarPage  from "./pages/calendar";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("spotify");
@@ -30,7 +30,7 @@ export default function App() {
         {activeTab === "spotify" && <SpotifyControls />}
         {activeTab === "slideshow" && <Slideshow />}
         {activeTab === "home" && <HomeAssistantControls />}
-        {activeTab === "calendar" && <Calendar />}
+        {activeTab === "calendar" && <CalendarPage />}
       </div>
     </div>
   );
