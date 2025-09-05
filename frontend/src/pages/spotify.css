@@ -97,7 +97,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2%;
+  gap: 20%;
+}
+
+/* Shuffle active state */
+.shuffle-btn.active {
+  color: #1DB954; /* Spotify green */
 }
 
 .spotify-progress {

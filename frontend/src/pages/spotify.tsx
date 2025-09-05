@@ -220,10 +220,16 @@ export function SpotifyControls() {
       {status && (
         <div className="spotify-controls">
           <div className="spotify-controls-inner">
-          <div className="spotify-controls-row">
-            <button onClick={handleShuffleToggle}>
-              <IconArrowsShuffle />
-            </button>
+            <div className="spotify-controls-row">
+              <button
+                className={shuffle ? "shuffle-btn active" : "shuffle-btn"}
+                aria-pressed={shuffle}
+                title={shuffle ? "Shuffle: On" : "Shuffle: Off"}
+                onClick={handleShuffleToggle}
+                style={shuffle ? { color: '#1ed760' } : undefined}
+              >
+                <IconArrowsShuffle />
+              </button>
             <button onClick={handlePrev}>
               <IconPlayerTrackPrev />
             </button>
@@ -246,7 +252,7 @@ export function SpotifyControls() {
               duration={status.duration}
               playing={status.playing}
               onSeek={handleSeek}
-              accentColor="#ddd"
+              accentColor={bgColor}
             />
           </div>
         </div>
@@ -258,7 +264,7 @@ export function SpotifyControls() {
               orientation="vertical"
               lengthPx={160}
               volume={volume}
-              accentColor="#1DB954"
+              accentColor={bgColor}
               onChange={handleVolumeChange}
             />
           </div>
