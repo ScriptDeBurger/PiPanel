@@ -26,6 +26,7 @@ class SpotifyPlayer:
             playing = current['is_playing']
             name = current['item']['name']
             artist = current['item']['artists'][0]['name']
+            album = current['item']['album']['name']
             album_img = current['item']['album']['images'][0]['url']
             return {
                 "playing": playing,
@@ -33,6 +34,7 @@ class SpotifyPlayer:
                 "duration": int(duration),
                 "name": name,
                 "artist": artist,
+                "album": album,
                 "album_img": album_img
             }
         else:
@@ -42,6 +44,7 @@ class SpotifyPlayer:
                 "duration": 0,
                 "name": "No song",
                 "artist": "",
+                "album": "",
                 "album_img": ""
             }
 
