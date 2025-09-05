@@ -60,7 +60,7 @@ export function MediaProgressBar({
         style={{ width: '100%', accentColor: accentColor, cursor: 'pointer' }}
         aria-label="Audio progress"
       />
-      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, color: '#ddd' }}>
         <span>{formatTime(internalProgress)}</span>
         <span>{formatTime(duration)}</span>
       </div>
