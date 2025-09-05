@@ -9,7 +9,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState("spotify");
 
   return (
-    <div className="h-screen w-screen flex flex-col">
+    <div className="h-screen w-screen flex flex-col overflow-hidden">
       {/* Top Tab Bar */}
       <div className="flex justify-around bg-gray-800 text-white p-3">
         <button onClick={() => setActiveTab("spotify")} className={activeTab === "spotify" ? "font-bold" : ""}>
@@ -26,7 +26,7 @@ export default function App() {
         </button>
       </div>
       {/* Content */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-hidden">
         {activeTab === "spotify" && <SpotifyControls />}
         {activeTab === "slideshow" && <Slideshow />}
         {activeTab === "home" && <HomeAssistantControls />}
