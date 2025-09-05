@@ -100,6 +100,11 @@
   gap: 2%;
 }
 
+/* Shuffle active state */
+.shuffle-btn.active {
+  color: #1DB954; /* Spotify green */
+}
+
 .spotify-progress {
   width: 100%;
   max-width: 80%;
