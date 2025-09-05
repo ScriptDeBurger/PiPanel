@@ -1,0 +1,142 @@
+.spotify-page {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding: 2%;
+  transition: background-color 0.7s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.spotify-shadow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.3) 30%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+.spotify-content {
+  position: relative;
+  z-index: 2;
+}
+
+.spotify-hero {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.spotify-hero-row {
+  display: flex;
+  align-items: center;
+  gap: 3%;
+  width: 100%;
+  max-width: 96%;
+  padding: 0 2%;
+}
+
+.spotify-cover {
+  width: 35%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 2%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.spotify-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2%;
+  color: #fff;
+  font-weight: 700;
+  flex: 1 1 auto;
+}
+
+.spotify-title {
+  font-size: 180%;
+  line-height: 120%;
+  font-weight: 700;
+}
+
+.spotify-artist {
+  font-size: 130%;
+  opacity: 0.9;
+}
+
+.spotify-album {
+  opacity: 0.8;
+}
+
+.spotify-controls {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2% 2%;
+  position: relative;
+  z-index: 2;
+}
+
+.spotify-controls-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1%;
+  color: #fff;
+}
+
+.spotify-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2%;
+}
+
+.spotify-progress {
+  width: 100%;
+  max-width: 80%;
+  margin-top: 1%;
+}
+
+.spotify-volume-popover {
+  position: fixed;
+  right: 2%;
+  height: 45%;
+  width: 40px;
+  bottom: calc(2% + 56px); /* sits above the toggle icon */
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  padding: 8px; /* ensure box is taller than slider */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.spotify-volume {
+  position: fixed;
+  right: 2%;
+  bottom: 2%;
+  z-index: 3;
+}
+
+.spotify-controls-row button svg {
+  width: 40px;
+  height: 40px;
+}
+
+.spotify-volume-toggle svg {
+  width: 40px;
+  height: 40px;
+  color: #fff;
+}
