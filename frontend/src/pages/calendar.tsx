@@ -59,7 +59,7 @@ const CalendarPage: React.FC = () => {
         endAccessor="end"
         style={{ height: "85%" }}
         defaultView="week"
-        scrollToTime={new Date() -1000 * 60 * 60 * 1} // Scroll to 1 hours before now
+        scrollToTime={new Date(Date.now() - 1000 * 60 * 60)}
       />
     </div>
   );
