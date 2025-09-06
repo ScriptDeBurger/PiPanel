@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000/spotify";
+const BASE_URL = "/spotify";
 
 export async function getStatus() {
   const res = await fetch(`${BASE_URL}/status`);
