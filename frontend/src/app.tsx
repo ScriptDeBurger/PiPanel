@@ -4,6 +4,7 @@ import { SpotifyControls } from "./pages/spotify";
 import { Slideshow } from "./pages/slideshow";
 import { HomeAssistantControls } from "./pages/lights";
 import  CalendarPage  from "./pages/calendar";
+import "./nav.css";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("spotify");
@@ -11,17 +12,17 @@ export default function App() {
   return (
     <div className="h-screen w-screen flex flex-col overflow-hidden">
       {/* Top Tab Bar */}
-      <div className="flex justify-around bg-gray-800 text-white p-3">
-        <button onClick={() => setActiveTab("spotify")} className={activeTab === "spotify" ? "font-bold" : ""}>
+      <div className="top-nav">
+        <button onClick={() => setActiveTab("spotify")} className={`tab-btn ${activeTab === "spotify" ? "active" : ""}`}>
           Spotify
         </button>
-        <button onClick={() => setActiveTab("slideshow")} className={activeTab === "slideshow" ? "font-bold" : ""}>
+        <button onClick={() => setActiveTab("slideshow")} className={`tab-btn ${activeTab === "slideshow" ? "active" : ""}`}>
           Photos
         </button>
-        <button onClick={() => setActiveTab("home")} className={activeTab === "home" ? "font-bold" : ""}>
+        <button onClick={() => setActiveTab("home")} className={`tab-btn ${activeTab === "home" ? "active" : ""}`}>
           Lights
         </button>
-        <button onClick={() => setActiveTab("calendar")} className={activeTab === "calendar" ? "font-bold" : ""}>
+        <button onClick={() => setActiveTab("calendar")} className={`tab-btn ${activeTab === "calendar" ? "active" : ""}`}>
           Calendar
         </button>
       </div>

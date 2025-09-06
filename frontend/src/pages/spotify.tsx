@@ -50,7 +50,7 @@ export function SpotifyControls() {
   const [shuffle, setShuffle] = useState(false);
   const [volume, setVolumeState] = useState(50);
   const [showVolume, setShowVolume] = useState(false);
-  const [bgColor, setBgColor] = useState<string>("#3a3636ff"); // default background
+  const [bgColor, setBgColor] = useState<string>("#bbb"); // default background
   const colorCache = useRef<Map<string, string>>(new Map());
   const volumeDebounceRef = useRef<number | null>(null);
   const isFetchingRef = useRef(false);
@@ -72,7 +72,7 @@ export function SpotifyControls() {
             }
           })
           .catch(() => {
-            if (!cancelled) setBgColor("#3a3636ff"); // fallback
+            if (!cancelled) setBgColor("#bbb"); // fallback
           });
       }
     }
@@ -184,13 +184,13 @@ export function SpotifyControls() {
       }
     };
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setShowVolume(false);
+      if (e.key === "Escape") setShowVolume(false);
     };
-    document.addEventListener('pointerdown', onPointerDown);
-    document.addEventListener('keydown', onKeyDown);
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
     return () => {
-      document.removeEventListener('pointerdown', onPointerDown);
-      document.removeEventListener('keydown', onKeyDown);
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
     };
   }, [showVolume]);
 
@@ -202,11 +202,13 @@ export function SpotifyControls() {
         {status ? (
           <div className="spotify-hero">
             <div className="spotify-hero-row">
-              <img className="spotify-cover" src={status.album_img} alt={status.name} />
+              <img className="spotify-cover" src={status.album_img} />
               <div className="spotify-meta">
                 <div className="spotify-artist">
                   {status.artist}
-                  {status.album && <div className="spotify-album">{status.album}</div>}
+                  {status.album && (
+                    <div className="spotify-album">{status.album}</div>
+                  )}
                 </div>
                 <div className="spotify-title">{status.name}</div>
               </div>
@@ -226,25 +228,31 @@ export function SpotifyControls() {
                 aria-pressed={shuffle}
                 title={shuffle ? "Shuffle: On" : "Shuffle: Off"}
                 onClick={handleShuffleToggle}
-                style={shuffle ? { color: '#1ed760' } : undefined}
+                style={shuffle ? { color: "#1ed760" } : undefined}
               >
                 <IconArrowsShuffle />
               </button>
-            <button onClick={handlePrev}>
-              <IconPlayerTrackPrev />
-            </button>
-            <button onClick={() => handlePlayPause(status?.playing)}>
-              {status.playing ? <IconPlayerPause /> : <IconPlayerPlay />}
-            </button>
-            <button onClick={handleNext}>
-              <IconPlayerTrackNext />
-            </button>
-            <button onClick={handleRepeatToggle}>
-              {repeatStates.current[repeatIndex] === "off" && <IconRepeatOff />}
-              {repeatStates.current[repeatIndex] === "context" && <IconRepeat />}
-              {repeatStates.current[repeatIndex] === "track" && <IconRepeatOnce />}
-            </button>
-          </div>
+              <button onClick={handlePrev}>
+                <IconPlayerTrackPrev />
+              </button>
+              <button onClick={() => handlePlayPause(status?.playing)}>
+                {status.playing ? <IconPlayerPause /> : <IconPlayerPlay />}
+              </button>
+              <button onClick={handleNext}>
+                <IconPlayerTrackNext />
+              </button>
+              <button onClick={handleRepeatToggle}>
+                {repeatStates.current[repeatIndex] === "off" && (
+                  <IconRepeatOff />
+                )}
+                {repeatStates.current[repeatIndex] === "context" && (
+                  <IconRepeat />
+                )}
+                {repeatStates.current[repeatIndex] === "track" && (
+                  <IconRepeatOnce />
+                )}
+              </button>
+            </div>
           </div>
           <div className="spotify-progress">
             <MediaProgressBar
@@ -274,7 +282,13 @@ export function SpotifyControls() {
           onClick={() => setShowVolume((v) => !v)}
           aria-label="Volume"
         >
-          {volume === 0 ? <IconVolumeOff /> : volume < 50 ? <IconVolume2 /> : <IconVolume />}
+          {volume === 0 ? (
+            <IconVolumeOff />
+          ) : volume < 50 ? (
+            <IconVolume2 />
+          ) : (
+            <IconVolume />
+          )}
         </button>
       </div>
     </div>
